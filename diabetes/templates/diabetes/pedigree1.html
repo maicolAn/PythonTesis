@@ -1,0 +1,49 @@
+{% extends 'usuarios/base.html' %}
+{% load static %}
+
+
+{% block title %} DIABETES {% endblock title %}
+
+
+
+{% block content %}
+
+
+<div class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <form action="/pedigree2/" class="left-0 text-left bg-faded p-5 rounded" method="POST">{% csrf_token %}
+                <h1 class="h3 mb-3 fw-normal text-center">Diagnosticar Diabetes</h1>
+                <input class="form-control"  type="number" name="glucosa-plasmatica" value="{{glucosa}}" hidden>
+                <input class="form-control"  type="number" name="presion-arterial" value="{{presion}}" hidden>
+                <input class="form-control"  type="number" name="espesor-piel" value="{{espesor}}" hidden>
+                <input class="form-control"  type="number" name="insulina" value="{{insulina}}" hidden>
+                <input class="form-control"  type="number" name="imc" value="{{imc}}" hidden>
+                <div class="form-group">
+                    <label>Cuantos Familiares tienes (abuelos, padres, hermanos, tios):</label> 
+                        <input class="form-control" placeholder="Ingresa el numero" type="number" name="familia" required>
+                                   
+                </div>
+                
+                <div class="form-group">
+                    <label>Tienes antecedentes familiares de Diabetes?:
+                        <select name="select">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </label>
+                    
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" >Continuar</button>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'usuarios/base.html' %}
+{% load static %}
+
+
+{% block title %} DIABETES {% endblock title %}
+
+
+
+{% block content %}
+
+
+<div class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            
+            <form action="/espesorpiel/" class="left-0 text-left bg-faded p-5 rounded" method="POST">{% csrf_token %}
+                <h1 class="h3 mb-3 fw-normal text-center">Diagnosticar Diabetes</h1>
+                <input class="form-control" placeholder="Ingresa el numero" type="number" name="glucosa-plasmatica" value="{{glucosa}}" hidden>
+                <div class="form-group">
+                    <label>PRESION ARTERIAL:</label>
+                        <input class="form-control" placeholder="Presion Arterial" type="number" name="presion-arterial" required>
+                    
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" >Continuar</button>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

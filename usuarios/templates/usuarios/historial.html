@@ -1,0 +1,87 @@
+{% extends "usuarios/base.html" %}
+
+{% block title %}Historial{% endblock %}
+
+{% block content %}
+    
+    <section class="page-section clearfix">
+        <div class="container">
+            <div class="intro">
+                <div class="left-0 text-left bg-faded p-5 rounded">
+                    <h1 style="margin-bottom: 30px; text-align: center;">Tu Historial</h1>
+                    <hr>
+                    {% if consultas %}
+                        <h1 style="margin-bottom: 30px; text-align: center;">Hipertension</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                  <th scope="col"></th>
+                                  <th scope="col">Edad</th>
+                                  <th scope="col">Genero</th>
+                                  <th scope="col">Presion Sistolica</th>
+                                  <th scope="col">Presion Diastolica</th>
+                                  <th scope="col">IMC</th>
+                                  <th scope="col">Colesterol</th>
+                                  <th scope="col">Hipertension</th>
+                                </tr>
+                            </thead>
+
+                            {% for consulta in consultas %}
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>{{consulta.edad}}</td>
+                                    <td>{{sexo}}</td>
+                                    <td>{{consulta.presion_s}}</td>
+                                    <td>{{consulta.presion_d}}</td>
+                                    <td>{{consulta.imc}}</td>
+                                    <td>{{consulta.colesterol_t}}</td>
+                                    <td>{{consulta.resultado}}</td>
+                                </tr>
+
+                            {% endfor %}
+                           
+                        </table>
+
+                        {% if consultadiabetes %}
+                            <h1 style="margin-bottom: 30px; text-align: center;">Diabetes</h1>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Glucosa Plasmatica</th>
+                                    <th scope="col">Presion Arterial</th>
+                                    <th scope="col">Espesor de Piel</th>
+                                    <th scope="col">Insulina</th>
+                                    <th scope="col">IMC</th>
+                                    <th scope="col">Pedigri Diabetes</th>
+                                    <th scope="col">Edad</th>
+                                    </tr>
+                                </thead>
+                            
+                                {% for consulta in consultadiabetes %}
+                                    <tr>
+                                        <td><input id="{{consulta.id}}" type="checkbox"></td>
+                                        <td>{{consulta.glucosa_plasmatica}}</td>
+                                        <td>{{consulta.presion_arterial}}</td>
+                                        <td>{{consulta.espesor_piel}}</td>
+                                        <td>{{consulta.insulina}}</td>
+                                        <td>{{consulta.imc}}</td>
+                                        <td>{{consulta.pedigri_diabetes}}</td>
+                                        <td>{{consulta.edad}}</td>
+                                    </tr>
+
+                                {% endfor %}
+                           
+                            </table>
+                            {% endif %}
+
+                    {% else %}
+                        
+                        
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends "usuarios/base.html" %}
+
+{% block title %}Registrate{% endblock %}
+
+{% block content %}
+       
+    <section class="">
+        <div class="">
+            <div class="text-center">
+                <main class="form-signup">
+                    <form   action="" method="POST">
+                        {% csrf_token %}
+                        <h1 class="h3 mb-3 fw-normal">Registrate</h1>
+                        <div class="form-floating mb-3">
+                            {{ form.username.errors }}
+                            {{ form.username }}
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ form.email.errors }}
+                            {{ form.email }}
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ form.first_name.errors }}
+                            {{ form.first_name }}
+                            
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ form.last_name.errors }}
+                            {{ form.last_name }}
+                        </div>
+                        <div>
+                            
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ form.password1.errors }}
+                            {{ form.password1 }}
+                        </div>
+                        <div>
+                            
+                        </div> 
+                        <div class="form-group mb-3">
+                            {{ form.password2.errors }}       
+                            {{ form.password2 }}
+
+                        </div>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
+                        
+                    </form> 
+                </main>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

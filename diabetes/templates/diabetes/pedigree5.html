@@ -1,0 +1,81 @@
+{% extends 'usuarios/base.html' %}
+{% load static %}
+
+
+{% block title %} DIABETES {% endblock title %}
+
+
+
+{% block content %}
+
+
+<div class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <form action="/resultado/" class="left-0 text-left bg-faded p-5 rounded" method="POST">{% csrf_token %}
+                <h1 class="h3 mb-3 fw-normal text-center">Diagnosticar Diabetes</h1>
+                <div class="form-group">
+                    <label>NOMBRE:</label>
+                        {{user.first_name}}
+                    
+                </div>
+                <div class="form-group">
+                    <label>GLUCOSA PLASMATICA:</label>
+                        {{ form.glucosa_plasmatica }} 
+                    
+                </div>
+                <div class="form-group">
+                    <label>PRESION ARTERIA:</label>
+                        {{ form.presion_arterial }}
+                    
+                </div>
+                <div class="form-group">
+                    <label>ESPESOR DE LA PIEL:</label>
+                        {{ form.espesor_piel}}
+                    
+                </div>
+                <div class="form-group">
+                    <label>INSULINA:</label>
+                        {{form.insulina}}
+                    
+                </div>
+                <div class="form-group">
+                    <label>IMC:</label>
+                        {{form.imc}}
+                    
+                </div>
+                <div class="form-group">
+                    <label>Tienes antecedentes familiares de Diabetes?:
+                        <select name="select">
+                            <option value="value1">Si</option>
+                            <option value="none" selected>--</option>
+                            <option value="value2">No</option>
+                        </select>
+                        {{form.pedigri_diabetes}}
+                    </label>
+                    
+                    <label>Cuantos Familiares tienes (abuelos, padres, hermanos, tios):</label>
+                        <input class="form-control" placeholder="Ingresa el numero" type="number" name="familia">
+                    
+                    <label>Cuantos Familiares con diabetes  diagnosticado tienes (abuelos, padres, hermanos, tios):</label>
+                        <input class="form-control" placeholder="Ingresa el numero" type="number" name="familia">
+                    
+                    
+                </div>
+                <div class="form-group">
+                    <label>EDAD:</label>
+                        {{form.edad}}
+                    
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" > Diagnosticar</button>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

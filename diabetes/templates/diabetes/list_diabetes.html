@@ -1,0 +1,30 @@
+{% extends 'usuarios/base.html' %}
+{% load static %}
+
+
+{% block title %} DIABETES {% endblock title %}
+
+
+{% block content %}
+
+
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <form action="/presionarterial/" class="left-0 text-left bg-faded p-5 rounded" method="POST">{% csrf_token %}
+                <h1 class="h3 mb-3 fw-normal text-center">Diagnosticar Diabetes</h1>
+                <div class="form-group">
+                    <label for="glucosa-plasmatica">GLUCOSA PLASMATICA:</label>
+                        <input class="form-control" placeholder="Glucosa Plasmatica" type="number" name="glucosa-plasmatica" required> 
+                </div>
+                
+                <div class="text-center">
+                    <button  type="submit" class="btn btn-primary" > Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

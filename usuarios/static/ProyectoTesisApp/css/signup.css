@@ -1,0 +1,29 @@
+
+.form-signup {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signup .checkbox {
+  font-weight: 400;
+}
+.form-signup .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(82, 83, 83, 0.514);
+}
+.foot-lnk{
+	text-align:center;
+}
+.foot-lnk2{
+	text-align:center;
+  margin-top: 20px;
+}

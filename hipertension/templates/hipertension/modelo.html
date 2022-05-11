@@ -1,0 +1,41 @@
+{% extends "usuarios/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <div class="left-0 text-left bg-faded p-5 rounded">
+                <form action="/buscar/" method="POST">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+
+                        <h1 class="h3 mb-3 fw-normal text-center">Ingresa los siguientes datos:</h1>
+                        <p> Edad:
+                            <input class="form-control" placeholder="Ingresa tu Edad" type="number" name="edad">
+                        </p>
+                        
+                        <p> Indice de Masa Corporal IMC(kg/m^2):
+                            <input class="form-control" placeholder="Ingresa tu IMC" type="number" name="imc">
+                        </p>
+                        <p> Peso(kg):
+                            <input class="form-control" placeholder="Ingresa tu peso" type="number" name="peso">
+                        </p>
+                        <p style="text-align: left;">
+                            Presion arterial sistolica:
+                            <input class="form-control" placeholder="Ingresa tu presion sistolica" type="number" name="presions">
+                        
+                        <p>
+                            <input class="form-control" type="submit" value="Enviar">
+                        </p>
+                    {% endif %}
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+ {% endblock %}

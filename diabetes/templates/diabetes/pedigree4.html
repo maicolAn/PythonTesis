@@ -1,0 +1,54 @@
+{% extends 'usuarios/base.html' %}
+{% load static %}
+
+
+{% block title %} DIABETES {% endblock title %}
+
+
+
+{% block content %}
+
+
+<div class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <form action="/edad/" class="left-0 text-left bg-faded p-5 rounded" method="POST">{% csrf_token %}
+                <h1 class="h3 mb-3 fw-normal text-center">Diagnosticar Diabetes</h1>
+                <input class="form-control"  type="number" name="glucosa-plasmatica" value="{{glucosa}}" hidden>
+                <input class="form-control"  type="number" name="presion-arterial" value="{{presion}}" hidden>
+                <input class="form-control"  type="number" name="espesor-piel" value="{{espesor}}" hidden>
+                <input class="form-control"  type="number" name="insulina" value="{{insulina}}" hidden>
+                <input class="form-control"  type="number" name="imc" value="{{imc}}" hidden>
+                <input class="form-control" placeholder="Ingresa el numero" type="number" name="familiano" value="{{familiano}}" hidden>
+                <input class="form-control" placeholder="Ingresa el numero" type="number" name="numerador" value="{{numerador}}" hidden>
+                {% for e in familia %}    
+                    <div class="form-group">
+                        <label>Parentesco familiar:
+                            <select name="select{{e}}">
+                                <option value="0.5">Madre</option>
+                                <option value="0.5">Padre</option>
+                                <option value="0.25">Abuelo</option>
+                                <option value="0.25">Abuela</option>
+                                <option value="0.5">Hermano/a</option>
+                                <option value="0.25">MedioHermano</option>
+                                <option value="0.25">Tia/o</option>
+                                <option value="0.125">MedioTia/o</option>
+                            </select>
+                        </label>
+                        <label>Edad del familiar:</label>
+                            <input class="form-control" placeholder="Ingresa el numero" type="number" name="edad-familiar{{e}}">
+                    </div>
+                    
+                {% endfor %}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" >Continuar</button>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
